@@ -1,8 +1,10 @@
 # Black and White Image Filter Application
 
+[!IMPORTANT] This application is a continuation of [mod10-pon3](https://github.com/danielquintaos/mod10-pon3). The differences can be seen here.
+
 ## Overview
 
-The Black and White Image Filter Application is a Flutter-based mobile application that allows users to sign up, log in, upload images, and view black-and-white filtered versions of their uploaded images. The backend is powered by FastAPI, providing APIs for user authentication, image processing, and logging user activities.
+The Black and White Image Filter Application is a Flutter-based mobile application that allows users to sign up, log in, upload images, and view black-and-white filtered versions of their uploaded images. The backend is powered by FastAPI and Node.js, providing APIs for user authentication, image processing, events management, and logging user activities.
 
 ## Features
 
@@ -10,7 +12,8 @@ The Black and White Image Filter Application is a Flutter-based mobile applicati
 - Image Upload
 - Image Download and View
 - Black and White Image Filtering
-- Logging user actions
+- Events Management
+- Centralized Logging System
 
 ## Project Structure
 
@@ -21,6 +24,7 @@ The backend is divided into multiple microservices, each with specific responsib
 1. **User Service**: Manages user authentication and CRUD operations.
 2. **Image Service**: Handles image upload, processing, and download.
 3. **Logging Service**: Logs user actions such as sign up, sign in, and image uploads.
+4. **Events Service**: Manages events and logs actions.
 
 ### Frontend
 
@@ -35,8 +39,8 @@ The frontend is built using Flutter and consists of several pages:
 ## Technologies Used
 
 - **Frontend**: Flutter, Provider for state management
-- **Backend**: FastAPI, SQLAlchemy, PostgreSQL, Alembic for migrations
-- **Other Tools**: Docker for containerization, GitHub Actions for CI/CD
+- **Backend**: FastAPI, Node.js, Sequelize, SQLite, SQLAlchemy, PostgreSQL, Alembic for migrations
+- **Other Tools**: Docker for containerization, GitHub Actions for CI/CD, Winston for logging
 
 ## Installation
 
@@ -45,6 +49,7 @@ The frontend is built using Flutter and consists of several pages:
 - Flutter SDK
 - Docker
 - Python 3.8+
+- Node.js
 - PostgreSQL
 
 ### Backend Setup
@@ -52,8 +57,8 @@ The frontend is built using Flutter and consists of several pages:
 1. **Clone the repository**
 
 ```sh
-git clone https://github.com/danielquintaos/mod10-pon3.git
-cd mod10-pon3
+git clone https://github.com/danielquintaos/mod10-pon4.git
+cd mod10-pon4
 ```
 
 2. **Set up the backend**
@@ -83,6 +88,26 @@ flutter pub get
 flutter run
 ```
 
+### Events Service Setup
+
+1. **Navigate to the events service directory**
+
+```sh
+cd backend/services/events_service
+```
+
+2. **Install dependencies**
+
+```sh
+npm install
+```
+
+3. **Run the events service**
+
+```sh
+node src/app.js
+```
+
 ## Usage
 
 ### Backend
@@ -91,6 +116,7 @@ The backend services will be available at the following URLs:
 - **User Service**: `http://localhost:8001`
 - **Image Service**: `http://localhost:8002`
 - **Logging Service**: `http://localhost:8003`
+- **Events Service**: `http://localhost:3000`
 - **API Gateway**: `http://localhost:8000`
 
 ### Frontend
@@ -110,6 +136,9 @@ The backend services will be available at the following URLs:
 4. **View Images**
    - Navigate to the View Images page to see the list of your uploaded images along with their black-and-white filtered versions.
 
+5. **Manage Events**
+   - Navigate to the Events section (if implemented in the frontend) to create, view, update, and delete events.
+
 ## Running Tests
 
 ### Backend
@@ -117,7 +146,7 @@ The backend services will be available at the following URLs:
 To run the backend tests, use the following command:
 
 ```sh
-cd mod10-pon3
+cd backend
 pytest
 ```
 
@@ -126,8 +155,17 @@ pytest
 To run the frontend tests, use the following command:
 
 ```sh
-cd black_and_white_filter_frontend
+cd frontend
 flutter test
+```
+
+### Events Service
+
+To run the events service tests, you need to create test files and use a testing framework like Jest or Mocha. Example:
+
+```sh
+cd backend/services/events_service
+npm test
 ```
 
 ## API Documentation
