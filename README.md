@@ -1,6 +1,7 @@
 # Black and White Image Filter Application
 
-[!IMPORTANT] This application is a continuation of [mod10-pon3](https://github.com/danielquintaos/mod10-pon3). The differences can be seen here.
+> [!IMPORTANT]
+> This application is a continuation of [mod10-pon3](https://github.com/danielquintaos/mod10-pon3). The changes can be seen [here](https://github.com/danielquintaos/mod10-pon4/commit/6b5c2c17af9e9fca71b7be77a619cbd6045266e5).
 
 ## Overview
 
